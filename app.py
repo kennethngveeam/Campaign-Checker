@@ -26,7 +26,7 @@ def find_non_matching_emails(listupload_path, sfdc_path):
         emails_in_listupload = listupload['Email Address'].str.strip().str.lower().dropna().unique()
         emails_in_sfdc = sfdc['Member Email'].str.strip().str.lower().dropna().unique()
         
-        non_matching_details = listupload[~listupload['Email Address'].str.lower().isin(emails_in_sfdc)]
+        non_matching_details = listupload[~listupload['Email Address'].str.strip().str.lower().isin(emails_in_sfdc)]
         non_matching_details = non_matching_details[['First Name', 'Last Name', 'Email Address', 'Company Name']]
         
         # Remove rows where all specified columns are NaN
