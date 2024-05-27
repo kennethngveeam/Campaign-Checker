@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+            margin-top: 50px;
+        }
+        p {
+            text-align: center;
+            font-size: 1.2em;
+        }
+        table {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: green;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #007BFF;
+        }
+    </style>
+</head>
+<body>
+    <h1>Failed List Uploads</h1>
+    <p>Total count of Failed Uploads: {{ count }}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Email Address</th>
+                <th>Company Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for detail in details %}
+                <tr>
+                    <td>{{ detail['First Name'] }}</td>
+                    <td>{{ detail['Last Name'] }}</td>
+                    <td>{{ detail['Email Address'] }}</td>
+                    <td>{{ detail['Company Name'] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/">Go back to home</a>
+</body>
+</html>
