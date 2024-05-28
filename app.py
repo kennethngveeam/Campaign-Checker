@@ -46,9 +46,7 @@ def upload_files():
         try:
             listupload = request.files['listupload']
             sfdc = request.files['sfdc']
-            listupload.save('listupload.xlsx')
-            sfdc.save('sfdc.xlsx')
-            non_matching_details = find_non_matching_emails('listupload.xlsx', 'sfdc.xlsx')
+            non_matching_details = find_non_matching_emails(listupload, sfdc)
             count_non_matching = len(non_matching_details)
             return render_template('result.html', details=non_matching_details, count=count_non_matching)
         except Exception as e:
